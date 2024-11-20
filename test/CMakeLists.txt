@@ -1,8 +1,10 @@
 enable_testing( )
 
-add_executable( foo test.cxx )
+include_directories( ../src )
 
-target_link_libraries( foo GTest::gtest_main )
+add_executable( TaskTest TaskTest.cpp ../src/Task.cpp )
+
+target_link_libraries( TaskTest GTest::gtest_main )
 
 include( GoogleTest )
-gtest_discover_tests( foo )
+gtest_discover_tests( TaskTest )
