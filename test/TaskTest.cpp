@@ -7,15 +7,22 @@
 
 using namespace testing;
 
-TEST( TaskTests, TaskInitialStateIsReady ) {
-    Task task;
+class TaskTests : public Test {
+    public:
+        Task task;
+};
 
+TEST_F( TaskTests, TaskInitialStateIsReady ) {
     EXPECT_EQ( task.getState( ), READY );
 }
 
-TEST( TaskTEST, TaskStateCanBeSetAndQueried ) {
-    Task task;
-
+TEST_F( TaskTests, TaskStateCanBeSetAndQueried ) {
     task.setState( RUNNING );
     EXPECT_EQ( task.getState( ), RUNNING );
+
+    task.setState( BLOCKED );
+    EXPECT_EQ( task.getState( ), BLOCKED );
+
+    task.setState( READY );
+    EXPECT_EQ( task.getState( ), READY );
 }
