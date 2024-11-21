@@ -26,3 +26,12 @@ TEST_F( TaskTests, TaskStateCanBeSetAndQueried ) {
     task.setState( READY );
     EXPECT_EQ( task.getState( ), READY );
 }
+
+TEST_F( TaskTests, TaskInitialPriorityIs500 ) {
+    EXPECT_EQ( task.getPriority( ), 500 );
+}
+
+TEST_F( TaskTests, TaskPriorityCanBeSetAndQueried ) {
+    task.setPriority( 250 );
+    EXPECT_EQ( task.getPriority( ), 250 );
+}

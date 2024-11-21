@@ -30,6 +30,11 @@ class Task {
         //! @return The current state of the task.
         TaskState getState( void );
 
+        unsigned int getPriority( void );
+
+        void setPriority( unsigned int newPriority );
+
     private:
         TaskState current_state;
+        unsigned int priority;
 };
