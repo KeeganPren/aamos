@@ -30,9 +30,15 @@ class Task {
         //! @return The current state of the task.
         TaskState getState( void );
 
+        //! Sets the new priority of the task.
+        //! @param newPriority is an integer in [1..1000] representing the task's new priority.
+        void setPriority( unsigned int newPriority );
+
+        //! Provides the current priotiry of the task.
+        //! @return The current priority of the task as an integer in [1..1000].
         unsigned int getPriority( void );
 
-        void setPriority( unsigned int newPriority );
+
 
     private:
         TaskState current_state;
