@@ -6,7 +6,9 @@
 //! Copyright (c) 2024 Keegan Prendergast
 //!
 
+//!
 //! TaskState Enumeration...
+//!
 enum TaskState { 
     READY,   //!< The task is ready to run.
     RUNNING, //!< The task is currently running.
