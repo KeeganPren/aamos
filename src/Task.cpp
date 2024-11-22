@@ -4,7 +4,7 @@
 
 #include "Task.hpp"
 
-Task::Task( void ): current_state(READY), priority(500) { }
+Task::Task( void ): current_state( READY ), priority( 500 ) { }
 
 void Task::setState( TaskState newState ) {
     this->current_state = newState;
@@ -20,6 +20,12 @@ unsigned int Task::getPriority( void ) {
 }
 
 void Task::setPriority( unsigned int newPriority ) {
-    this->priority = newPriority;
+    if( newPriority >= 1 && newPriority <= 1000 ) {
+        this->priority = newPriority;
+    }
+    else {
+        this->priority = 0xFFFF;
+    }
+
     return;
 }

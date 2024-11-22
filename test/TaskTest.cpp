@@ -35,3 +35,17 @@ TEST_F( TaskTests, TaskPriorityCanBeSetAndQueried ) {
     task.setPriority( 250 );
     EXPECT_EQ( task.getPriority( ), 250 );
 }
+
+TEST_F( TaskTests, TaskPriorityBetween1And1000Inclusive ) {
+    task.setPriority( 1 );
+    EXPECT_EQ( task.getPriority( ), 1 );
+
+    task.setPriority( 1000 );
+    EXPECT_EQ( task.getPriority( ), 1000 );
+
+    task.setPriority( 0 );
+    EXPECT_EQ( task.getPriority( ), 0xFFFF );
+
+    task.setPriority( 1984 );
+    EXPECT_EQ( task.getPriority( ), 0xFFFF );
+}
