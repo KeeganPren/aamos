@@ -4,9 +4,9 @@
 cmake_minimum_required( VERSION 3.25 )
 
 project( AAMOS
-	 VERSION 0.1.0
-	 DESCRIPTION "Another AVR Microcontroller Operating System"
-	 HOMEPAGE_URL "http://github.com/KeeganPren/aamos" )
+	 	 VERSION 0.1.0
+	 	 DESCRIPTION "Another AVR Microcontroller Operating System"
+	 	 HOMEPAGE_URL "http://github.com/KeeganPren/aamos" )
 
 set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )

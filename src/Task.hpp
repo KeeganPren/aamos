@@ -40,8 +40,6 @@ class Task {
         //! @return The current priority of the task as an integer in [1..1000].
         unsigned int getPriority( void );
 
-
-
     private:
         TaskState current_state;
         unsigned int priority;
