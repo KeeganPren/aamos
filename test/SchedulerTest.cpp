@@ -7,3 +7,11 @@
 
 using namespace testing;
 
+class SchedulerTests : public Test {
+    public:
+        Scheduler scheduler;
+};
+
+TEST_F( SchedulerTests, Scheduler ) {
+    
+}

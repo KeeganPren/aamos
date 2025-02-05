@@ -1,1 +1,1 @@
-doxygen_add_docs( doc Task.hpp )
+doxygen_add_docs( doc Task.hpp Scheduler.hpp )

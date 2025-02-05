@@ -1,7 +1,8 @@
 //!
 //! AAMOS Scheduler
 //!
-//! The Scheduler.
+//! The Scheduler contains a list of tasks and is reposible for scheduling
+//! the next task to run.
 //!
 //! Copyright (c) 2025 Keegan Prendergast
 //!
@@ -13,5 +14,5 @@
 //!
 class Scheduler {
     public:
-    
-}
+
+};
