@@ -1,0 +1,9 @@
+set( CMAKE_SYSTEM_NAME Generic )
+set( CMAKE_SYSTEM_PROCESSOR "avr" )
+
+set( CMAKE_C_COMPILER avr-gcc )
+set( CMAKE_CXX_COMPILER avr-g++ )
+
+set( CMAKE_FIND_ROOT_PATH "/usr/lib/avr")
+
+set( CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY )

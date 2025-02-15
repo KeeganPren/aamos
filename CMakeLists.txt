@@ -1,29 +1,24 @@
 #
-# Copyright (c) 2024 Keegan Prendergast
+# Top level CMakeLists.txt file for AAMOS.
+#
+# Copyright (c) 2025 Keegan Prendergast
 #
 cmake_minimum_required( VERSION 3.25 )
 
 project( AAMOS
-	 VERSION 0.1.0
-	 DESCRIPTION "Another AVR Microcontroller Operating System"
-	 HOMEPAGE_URL "http://github.com/KeeganPren/aamos" )
+	 	 VERSION 0.1.0
+	 	 DESCRIPTION "Another AVR Microcontroller Operating System"
+	 	 HOMEPAGE_URL "http://github.com/KeeganPren/aamos" )
 
 set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_FLAGS "-O2 -Wall -Werror" )
+set( CMAKE_CXX_FLAGS_DEBUG "-g -O0 -Wall -fprofile-arcs -ftest-coverage" )
 
+# Use Doxygen for documentation.
 find_package( Doxygen )
 
-# Download and setup GoogleTest
-include( FetchContent )
-FetchContent_Declare(
-	googletest
-	URL http://github.com/google/googletest/archive/refs/tags/v1.15.2.zip
-)
-
-set( gtest_force_shared_crt ON CACHE BOOL "" FORCE )
-FetchContent_MakeAvailable(googletest)
-
-enable_testing( )
+doxygen_add_docs( doc src lib )
 
 add_subdirectory( src )
 add_subdirectory( test )
