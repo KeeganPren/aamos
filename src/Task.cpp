@@ -4,7 +4,7 @@
 
 #include "Task.hpp"
 
-Task::Task( void ): current_state( READY ), priority( 500 ) { }
+Task::Task( void ): current_state( TASK_READY ), priority( 500 ) { }
 
 void Task::setState( TaskState newState ) {
     this->current_state = newState;

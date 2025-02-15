@@ -7,6 +7,16 @@
 //! Copyright (c) 2025 Keegan Prendergast
 //!
 
+#include "Task.hpp"
+
+//!
+//! TaskState Enumeration...
+//!
+enum SchedulerState { 
+    SCHEDULER_READY,    //!< The scheduler is ready to accept Tasks and then run.
+    SCHEDULER_RUNNING   //!< The scheduler is running and swapping tasks according to priority.
+};
+
 //!
 //! Scheduler...
 //!
@@ -14,5 +24,20 @@
 //!
 class Scheduler {
     public:
+        Scheduler( void );
 
+        //! Adds a Task to the scheduler for execution.
+        //! @return The ID of the newly added task or SCHEDULER_ERROR.
+        unsigned int addTask( Task newTask );
+
+        //! Tells the scheduler to run with its current set of Tasks.
+        //! @return The new state of the scheduler.
+        SchedulerState run( void );
+
+        //! Provides the current state of the scheduler.
+        //! @return The current state of the scheduler.
+        SchedulerState getState( void );
+    
+    private:
+        SchedulerState current_state;
 };

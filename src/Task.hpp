@@ -6,13 +6,15 @@
 //! Copyright (c) 2024 Keegan Prendergast
 //!
 
+#ifndef TASK_HPP
+#define TASK_HPP
 //!
 //! TaskState Enumeration...
 //!
 enum TaskState { 
-    READY,   //!< The task is ready to run.
-    RUNNING, //!< The task is currently running.
-    BLOCKED  //!< The task is blocked on an external event.
+    TASK_READY,   //!< The task is ready to run.
+    TASK_RUNNING, //!< The task is currently running.
+    TASK_BLOCKED  //!< The task is blocked on an external event.
 };
 
 //!
@@ -44,3 +46,5 @@ class Task {
         TaskState current_state;
         unsigned int priority;
 };
+
+#endif

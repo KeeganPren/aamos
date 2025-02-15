@@ -1,1 +1,4 @@
-doxygen_add_docs( doc Task.hpp Scheduler.hpp )
+add_executable( aamos ApplicationMain.cpp Task.cpp Scheduler.cpp )
+
+add_library( Task Task.cpp )
+add_library( Scheduler Scheduler.cpp )

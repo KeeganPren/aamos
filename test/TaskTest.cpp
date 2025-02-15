@@ -13,18 +13,18 @@ class TaskTests : public Test {
 };
 
 TEST_F( TaskTests, TaskInitialStateIsReady ) {
-    EXPECT_EQ( task.getState( ), READY );
+    EXPECT_EQ( task.getState( ), TASK_READY );
 }
 
 TEST_F( TaskTests, TaskStateCanBeSetAndQueried ) {
-    task.setState( RUNNING );
-    EXPECT_EQ( task.getState( ), RUNNING );
+    task.setState( TASK_RUNNING );
+    EXPECT_EQ( task.getState( ), TASK_RUNNING );
 
-    task.setState( BLOCKED );
-    EXPECT_EQ( task.getState( ), BLOCKED );
+    task.setState( TASK_BLOCKED );
+    EXPECT_EQ( task.getState( ), TASK_BLOCKED );
 
-    task.setState( READY );
-    EXPECT_EQ( task.getState( ), READY );
+    task.setState( TASK_READY );
+    EXPECT_EQ( task.getState( ), TASK_READY );
 }
 
 TEST_F( TaskTests, TaskInitialPriorityIs500 ) {
