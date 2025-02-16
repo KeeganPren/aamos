@@ -23,5 +23,3 @@ target_link_libraries( SchedulerTest Scheduler Task GTest::gtest_main )
 include( GoogleTest )
 gtest_discover_tests( TaskTest )
 gtest_discover_tests( SchedulerTest )
-
-include( CTest )
