@@ -17,4 +17,4 @@ lcov --remove coverage.info '/usr/*' --output-file coverage.info
 genhtml -o coverage coverage.info
 
 # Generate documentation
-cd src; make docs; cd ..
+cd build; make doc; cd ..
