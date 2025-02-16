@@ -5,17 +5,19 @@
 
 #Defaults
 BUILD_DIR='build'
+TARGET='local'
 GEN_DOCS=unset
 COVERAGE=unset
 
 usage()
 {
-  echo "Usage: build.sh [ -b | --build-dir BUILD_DIR ] [ -d | --with-docs ] [ -c | --with-coverage]"
+  echo "Usage: build.sh [ -b | --build-dir BUILD_DIR ] [ -t | --target TARGET]
+                [ -d | --with-docs ] [ -c | --with-coverage]"
   exit 2
 }
 
 # Parse the command line arguments.
-PARSED_ARGUMENTS=$(getopt -a -n build.sh -o b:dc --long build-dir:,with-docs,with-coverage -- "$@")
+PARSED_ARGUMENTS=$(getopt -a -n build.sh -o b:t:dc --long build-dir:,target:,with-docs,with-coverage -- "$@")
 VALID_ARGUMENTS=$?
 if [ "$VALID_ARGUMENTS" != "0" ]; then
   usage
@@ -25,7 +27,8 @@ eval set -- "$PARSED_ARGUMENTS"
 while :
 do
   case "$1" in
-    -b | --build-dir) BUILD_DIR="$2" ; shift 2;;
+    -b | --build-dir) BUILD_DIR="$2"; shift 2;;
+    -t | --target) TARGET="$2"; shift 2;;
     -d | --with-docs) GEN_DOCS=1; shift;;
     -c | --with-coverage) COVERAGE=1; shift;;
     --) shift; break ;;
@@ -35,7 +38,14 @@ do
 done
 
 # Generate the build files
-cmake -S . -B $BUILD_DIR
+if [ $TARGET = 'local' ]; then
+  cmake -S . -B $BUILD_DIR
+elif [ $TARGET = 'avr' ]; then
+  cmake -DCMAKE_TOOLCHAIN_FILE="avr-toolchain.cmake" -S . -B $BUILD_DIR
+else
+  echo "Invalid TARGET specified: $TARGET"
+  exit 2
+fi
 
 # Generate the build
 cmake --build $BUILD_DIR
