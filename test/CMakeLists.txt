@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Keegan Prendergast
+
 # Download and setup GoogleTest
 include( FetchContent )
 FetchContent_Declare(
