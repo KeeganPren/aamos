@@ -5,19 +5,20 @@
 
 #Defaults
 BUILD_DIR='build'
+BUILD_TYPE='Debug'
 TARGET='local'
 GEN_DOCS=unset
 COVERAGE=unset
 
 usage()
 {
-  echo "Usage: build.sh [ -b | --build-dir BUILD_DIR ] [ -t | --target TARGET]
-                [ -d | --with-docs ] [ -c | --with-coverage]"
+  echo "Usage: build.sh [ -b | --build-dir BUILD_DIR ] [ -o | --output-target TARGET]
+                [ -t | --build-type BUILD_TYPE] [ -d | --with-docs ] [ -c | --with-coverage]"
   exit 2
 }
 
 # Parse the command line arguments.
-PARSED_ARGUMENTS=$(getopt -a -n build.sh -o b:t:dc --long build-dir:,target:,with-docs,with-coverage -- "$@")
+PARSED_ARGUMENTS=$(getopt -a -n build.sh -o b:o:t:dc --long build-dir:,output-target:,with-docs,with-coverage,build-type: -- "$@")
 VALID_ARGUMENTS=$?
 if [ "$VALID_ARGUMENTS" != "0" ]; then
   usage
@@ -28,7 +29,8 @@ while :
 do
   case "$1" in
     -b | --build-dir) BUILD_DIR="$2"; shift 2;;
-    -t | --target) TARGET="$2"; shift 2;;
+    -o | --output-target) TARGET="$2"; shift 2;;
+    -t | --build_type) BUILD_TYPE="$2"; shift 2;;
     -d | --with-docs) GEN_DOCS=1; shift;;
     -c | --with-coverage) COVERAGE=1; shift;;
     --) shift; break ;;
@@ -36,6 +38,8 @@ do
        usage ;;
   esac
 done
+
+export CMAKE_BUILD_TYPE=$BUILD_TYPE
 
 # Generate the build files
 if [ $TARGET = 'local' ]; then
@@ -48,7 +52,7 @@ else
 fi
 
 # Generate the build
-cmake --build $BUILD_DIR
+cmake --build $BUILD_DIR -v
 
 # Run the tests
 cd $BUILD_DIR; ctest -T Test -T Coverage; cd ..
