@@ -45,7 +45,7 @@ export CMAKE_BUILD_TYPE=$BUILD_TYPE
 if [ $TARGET = 'local' ]; then
   cmake -S . -B $BUILD_DIR
 elif [ $TARGET = 'avr' ]; then
-  cmake -DCMAKE_TOOLCHAIN_FILE="avr-toolchain.cmake" -S . -B $BUILD_DIR
+  cmake -DCMAKE_TOOLCHAIN_FILE="cmake/avr-toolchain.cmake" -S . -B $BUILD_DIR
 else
   echo "Invalid TARGET specified: $TARGET"
   exit 2
