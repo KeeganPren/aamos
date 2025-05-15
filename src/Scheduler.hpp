@@ -9,6 +9,8 @@
 
 #include "Task.hpp"
 
+#include <list>
+
 //!
 //! TaskState Enumeration...
 //!
@@ -40,4 +42,5 @@ class Scheduler {
     
     private:
         SchedulerState current_state;
+        std::list<Task> task_list;
 };

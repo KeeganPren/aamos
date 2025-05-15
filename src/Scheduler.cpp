@@ -7,7 +7,8 @@
 Scheduler::Scheduler( void ): current_state( SCHEDULER_READY ) { }
 
 unsigned int Scheduler::addTask( Task newTask ) {
-    return 0;
+    task_list.push_back( newTask );
+    return task_list.size();
 }
 
 SchedulerState Scheduler::run( void ) {
