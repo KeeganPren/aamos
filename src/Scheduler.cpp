@@ -11,12 +11,12 @@ unsigned int Scheduler::addTask( Task newTask ) {
     return task_list.size();
 }
 
-SchedulerState Scheduler::run( void ) {
+Scheduler::SchedulerState Scheduler::run( void ) {
     this->current_state = SCHEDULER_RUNNING;
     
     return this->current_state;
 }
 
-SchedulerState Scheduler::getState( void ) {
+Scheduler::SchedulerState Scheduler::getState( void ) {
     return this->current_state;
 }

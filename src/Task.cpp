@@ -11,7 +11,7 @@ void Task::setState( TaskState newState ) {
     return; 
 }
 
-TaskState Task::getState( void ) {
+Task::TaskState Task::getState( void ) {
     return this->current_state;
 }
 

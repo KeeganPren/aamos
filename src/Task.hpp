@@ -8,14 +8,6 @@
 
 #ifndef TASK_HPP
 #define TASK_HPP
-//!
-//! TaskState Enumeration...
-//!
-enum TaskState { 
-    TASK_READY,   //!< The task is ready to run.
-    TASK_RUNNING, //!< The task is currently running.
-    TASK_BLOCKED  //!< The task is blocked on an external event.
-};
 
 //!
 //! Welcome to the Task class!
@@ -25,6 +17,15 @@ enum TaskState {
 class Task {
     public:
         Task( void );
+
+        //!
+        //! TaskState is an enumeration that defines the various states a Task may be in.
+        //!
+        enum TaskState { 
+            TASK_READY,   //!< The task is ready to run.
+            TASK_RUNNING, //!< The task is currently running.
+            TASK_BLOCKED  //!< The task is blocked on an external event.
+        };
 
         //! Sets the new state of the task.
         //! @param newState is the new state of the task.

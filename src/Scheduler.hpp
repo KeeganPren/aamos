@@ -11,13 +11,7 @@
 
 #include <list>
 
-//!
-//! TaskState Enumeration...
-//!
-enum SchedulerState { 
-    SCHEDULER_READY,    //!< The scheduler is ready to accept Tasks and then run.
-    SCHEDULER_RUNNING   //!< The scheduler is running and swapping tasks according to priority.
-};
+
 
 //!
 //! Scheduler...
@@ -27,6 +21,14 @@ enum SchedulerState {
 class Scheduler {
     public:
         Scheduler( void );
+
+        //!
+        //! SchedulerState is an enumeration that defines the various states the Scheduler may be in.
+        //!
+        enum SchedulerState { 
+            SCHEDULER_READY,    //!< The scheduler is ready to accept Tasks and then run.
+            SCHEDULER_RUNNING   //!< The scheduler is running and swapping tasks according to priority.
+        };
 
         //! Adds a Task to the scheduler for execution.
         //! @return The ID of the newly added task or SCHEDULER_ERROR.

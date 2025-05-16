@@ -16,7 +16,7 @@ class SchedulerTests : public Test {
 };
 
 TEST_F( SchedulerTests, SchedulerInitialStateIsReady ) {
-    EXPECT_EQ( scheduler.getState( ), SCHEDULER_READY );
+    EXPECT_EQ( scheduler.getState( ), Scheduler::SCHEDULER_READY );
 }
 
 TEST_F( SchedulerTests, SchedulerTasksCanBeAdded ) {
@@ -25,5 +25,5 @@ TEST_F( SchedulerTests, SchedulerTasksCanBeAdded ) {
 }
 
 TEST_F( SchedulerTests, SchedulerCanBeStarted ) {
-    EXPECT_EQ( scheduler.run( ), SCHEDULER_RUNNING );
+    EXPECT_EQ( scheduler.run( ), Scheduler::SCHEDULER_RUNNING );
 }
